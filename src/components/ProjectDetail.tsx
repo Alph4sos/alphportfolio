@@ -206,10 +206,12 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
                 <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800 bg-black">
                   <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
                     <iframe
-                      src={project.videoPreview}
+                      src={`${project.videoPreview}?playsinline=0&title=0&byline=0&portrait=0`}
                       frameBorder="0"
                       allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
                       allowFullScreen
+                      webkitallowfullscreen="true"
+                      mozallowfullscreen="true"
                       style={{
                         position: 'absolute',
                         top: 0,

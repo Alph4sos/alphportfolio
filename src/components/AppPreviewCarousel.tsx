@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 interface AppPreviewCarouselProps {
@@ -164,8 +164,8 @@ export function AppPreviewCarousel({ lightModeImages, darkModeImages, isWebsiteP
                                 >
                                     <div
                                         className={`overflow-hidden flex items-center justify-center ${isWebsitePreview
-                                                ? 'rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900'
-                                                : ''
+                                            ? 'rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900'
+                                            : ''
                                             }`}
                                         style={isWebsitePreview ? {} : { maxWidth: '800px', maxHeight: '560px' }}
                                     >
