@@ -209,6 +209,7 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
                       src={project.videoPreview}
                       frameBorder="0"
                       allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                      allowFullScreen
                       style={{
                         position: 'absolute',
                         top: 0,
