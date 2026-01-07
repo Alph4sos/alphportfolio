@@ -184,28 +184,31 @@ export function AppPreviewCarousel({ lightModeImages, darkModeImages, isWebsiteP
                 </div>
             </div>
 
-            {/* Mobile Layout - Single image with swipe */}
-            <div
-                className="md:hidden relative h-[500px] flex items-center justify-center touch-pan-y"
-            >
-                <AnimatePresence mode="wait">
-                    <motion.div
-                        key={currentIndex}
-                        initial={{ opacity: 0, x: 100 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -100 }}
-                        transition={{ duration: 0.3 }}
-                        className="w-full max-w-[280px] mx-auto"
-                    >
-                        <div className="overflow-hidden aspect-[9/19.5]">
-                            <ImageWithFallback
-                                src={allImages[currentIndex]}
-                                alt={`App preview ${currentIndex + 1}`}
-                                className="w-full h-full object-contain"
-                            />
+            {/* Mobile Layout - Single image with smooth CSS transforms */}
+            <div className="md:hidden relative overflow-hidden touch-pan-y">
+                <div
+                    className="flex transition-transform duration-300 ease-out"
+                    style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                >
+                    {allImages.map((src, index) => (
+                        <div
+                            key={index}
+                            className="w-full flex-shrink-0 flex items-center justify-center"
+                            style={{ minWidth: '100%' }}
+                        >
+                            <div className="w-full max-w-[280px] mx-auto">
+                                <div className="overflow-hidden aspect-[9/19.5]">
+                                    <img
+                                        src={src}
+                                        alt={`App preview ${index + 1}`}
+                                        className="w-full h-full object-contain"
+                                        loading={index <= currentIndex + 1 ? "eager" : "lazy"}
+                                    />
+                                </div>
+                            </div>
                         </div>
-                    </motion.div>
-                </AnimatePresence>
+                    ))}
+                </div>
             </div>
 
             {/* Progress Indicators */}
