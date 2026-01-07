@@ -212,11 +212,6 @@ export function AppPreviewCarousel({ lightModeImages, darkModeImages, isWebsiteP
                             </div>
                         </motion.div>
                     </AnimatePresence>
-
-                    {/* Swipe hint for mobile */}
-                    <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex items-center gap-2 text-gray-500 dark:text-gray-400 text-xs">
-                        <span>← Swipe to navigate →</span>
-                    </div>
                 </div>
 
                 {/* Progress Indicators */}
