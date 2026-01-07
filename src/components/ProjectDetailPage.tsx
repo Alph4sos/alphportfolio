@@ -217,7 +217,7 @@ export function ProjectDetailPage() {
           '/kovest/dark_mode/7.png'
         ]
       },
-      videoPreview: 'https://vimeo.com/1151316291?fl=pl&fe=sh'
+      videoPreview: 'https://player.vimeo.com/video/1151316291'
     },
     {
       slug: 'project-eon',
