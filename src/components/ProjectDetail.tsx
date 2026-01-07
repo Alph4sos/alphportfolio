@@ -191,9 +191,10 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
             {project.appPreviews && (
               <div className="mb-12">
                 <h3 className="text-2xl mb-2 text-gray-900 dark:text-white">{project.websiteUrl ? 'Website Previews' : 'App Previews'}</h3>
-                {/* Swipe hint for mobile */}
-                <div className="md:hidden flex items-center justify-center gap-2 text-gray-500 dark:text-gray-400 text-sm mb-4">
-                  <span>← Swipe to navigate →</span>
+                {/* Navigation hint for all devices */}
+                <div className="flex items-center justify-center gap-2 text-gray-500 dark:text-gray-400 text-sm mb-4">
+                  <span className="hidden md:inline">← Scroll to navigate →</span>
+                  <span className="md:hidden">← Swipe to navigate →</span>
                 </div>
                 <AppPreviewCarousel
                   lightModeImages={project.appPreviews.lightMode}

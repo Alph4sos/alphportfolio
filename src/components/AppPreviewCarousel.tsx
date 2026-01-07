@@ -181,60 +181,54 @@ export function AppPreviewCarousel({ lightModeImages, darkModeImages, isWebsiteP
                             );
                         })}
                     </div>
-
-                    {/* Scroll hint for desktop */}
-                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
-                        <span>←</span>
-                        <span>Scroll to navigate</span>
-                        <span>→</span>
-                    </div>
-                </div>
-
-                {/* Mobile Layout - Single image with swipe */}
-                <div
-                    className="md:hidden relative h-[500px] flex items-center justify-center touch-pan-y"
-                >
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={currentIndex}
-                            initial={{ opacity: 0, x: 100 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -100 }}
-                            transition={{ duration: 0.3 }}
-                            className="w-full max-w-[280px] mx-auto"
-                        >
-                            <div className="overflow-hidden aspect-[9/19.5]">
-                                <ImageWithFallback
-                                    src={allImages[currentIndex]}
-                                    alt={`App preview ${currentIndex + 1}`}
-                                    className="w-full h-full object-contain"
-                                />
-                            </div>
-                        </motion.div>
-                    </AnimatePresence>
-                </div>
-
-                {/* Progress Indicators */}
-                <div className="flex justify-center gap-2 mt-6">
-                    {allImages.map((_, index) => (
-                        <button
-                            key={index}
-                            onClick={() => setCurrentIndex(index)}
-                            className={`h-2 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 ${index === currentIndex
-                                ? 'w-8 bg-blue-500'
-                                : 'w-2 bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
-                                }`}
-                            aria-label={`Go to image ${index + 1}`}
-                            aria-current={index === currentIndex ? 'true' : 'false'}
-                        />
-                    ))}
-                </div>
-
-                {/* Image Counter */}
-                <div className="text-center mt-4 text-sm text-gray-600 dark:text-gray-400">
-                    {currentIndex + 1} / {allImages.length}
                 </div>
             </div>
+
+            {/* Mobile Layout - Single image with swipe */}
+            <div
+                className="md:hidden relative h-[500px] flex items-center justify-center touch-pan-y"
+            >
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={currentIndex}
+                        initial={{ opacity: 0, x: 100 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -100 }}
+                        transition={{ duration: 0.3 }}
+                        className="w-full max-w-[280px] mx-auto"
+                    >
+                        <div className="overflow-hidden aspect-[9/19.5]">
+                            <ImageWithFallback
+                                src={allImages[currentIndex]}
+                                alt={`App preview ${currentIndex + 1}`}
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                    </motion.div>
+                </AnimatePresence>
+            </div>
+
+            {/* Progress Indicators */}
+            <div className="flex justify-center gap-2 mt-6">
+                {allImages.map((_, index) => (
+                    <button
+                        key={index}
+                        onClick={() => setCurrentIndex(index)}
+                        className={`h-2 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 ${index === currentIndex
+                            ? 'w-8 bg-blue-500'
+                            : 'w-2 bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
+                            }`}
+                        aria-label={`Go to image ${index + 1}`}
+                        aria-current={index === currentIndex ? 'true' : 'false'}
+                    />
+                ))}
+            </div>
+
+            {/* Image Counter */}
+            <div className="text-center mt-4 text-sm text-gray-600 dark:text-gray-400">
+                {currentIndex + 1} / {allImages.length}
+            </div>
         </div>
+        </div >
     );
 }
