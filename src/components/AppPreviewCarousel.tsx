@@ -145,7 +145,7 @@ export function AppPreviewCarousel({ lightModeImages, darkModeImages, isWebsiteP
 
                             return (
                                 <motion.div
-                                    key={`${index}-${currentIndex}`}
+                                    key={index}
                                     className={`flex-shrink-0 ${isWebsitePreview ? 'w-full' : ''}`}
                                     initial={false}
                                     animate={{
